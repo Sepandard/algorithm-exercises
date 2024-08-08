@@ -16,6 +16,26 @@ Time Complexity - O(N)
 Space Complexity - 0(1)
 **/
 
-function maxSubarraySum(){
+function maxSubarraySum(arr = [], size = 0) {
   // add whatever parameters you deem necessary - good luck!
+  if (arr.length < size)
+    throw Error("sliding window size must smaller then array length");
+
+  let max = 0;
+  let sum = 0;
+
+  for (let index = 0; index < size; index++) {
+    sum += arr[index];
+    max = sum;
+  }
+  for (let index = size; index < arr.length; index++) {
+    sum += arr[index] - arr[index - size];
+    if (max < sum) {
+      max = sum;
+    }
+  }
+
+  return max;
 }
+
+console.log(maxSubarraySum([100, 200, 300, 400], 2));

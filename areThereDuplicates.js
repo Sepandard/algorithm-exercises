@@ -13,6 +13,18 @@ Time - O(n log n)
 Space - O(1)
 **/
 
-function areThereDuplicates() {
+function areThereDuplicates(arr = []) {
   // good luck. (supply any arguments you deem necessary.)
+  if (arr.length === 0) throw Error("input is null please enter value");
+  const dataSet = new Set();
+  return arr.reduce((_, currentItem) => {
+    if (dataSet.has(currentItem)) {
+      return true;
+    } else {
+      dataSet.add(currentItem);
+    }
+    return false;
+  }, false);
 }
+
+console.log(areThereDuplicates(["a", 2, 3, 4, "a"]));

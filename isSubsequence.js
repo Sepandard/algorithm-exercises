@@ -15,6 +15,24 @@ Space Complexity - 0(1)
 
 **/
 
-function isSubsequence() {
+function isSubsequence(str1, str2) {
   // good luck. Add any arguments you deem necessary.
+  if (!str1 || !str2) throw Error("input is null please enter value");
+  let response = false
+  const strArr1 = str1.split("");
+  const strArr2 = str2.split("");
+
+  let indexArr1 = 0;
+  strArr2.forEach((element,i) => {
+    if (strArr2[i] === strArr1[indexArr1]) {
+      indexArr1 = indexArr1 + 1;
+      if (indexArr1 === strArr1.length) {
+        response = true;
+      }
+    }
+  });
+
+  return response;
 }
+
+console.log(isSubsequence('abcdz', 'abracadabra'));

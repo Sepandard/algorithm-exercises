@@ -28,6 +28,26 @@ class Stack {
         return ++this.size;
     }
     pop(){
-        // code here
+        if(!this.first) return null;
+        var temp = this.first;
+        if(this.first === this.last){
+            this.last = null;
+        }
+        this.first = this.first.next;
+        this.size--;
+        return temp.value;
+    }
+    size(){
+        return this.size
     }
 }
+
+const stack = new Stack()
+
+stack.push(12)
+stack.push(22)
+stack.push(23)
+console.log(stack);
+stack.pop()
+console.log(stack);
+

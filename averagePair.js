@@ -13,6 +13,24 @@ averagePair ([-1,0,3,4,5,6], 4.1) // false
 averagePair([1],4) // false
 **/
 
-function averagePair(){
+function averagePair(arr = [], avgTarget) {
   // add whatever parameters you deem necessary - good luck!
+  if (arr.length === 0 || avgTarge == null)
+    throw Error("input is null please enter value");
+
+  let left = 0;
+  let right = arr.length - 1;
+  while (right > left) {
+    const avg = (arr[right] + arr[left]) / 2;
+    if (avg === avgTarget) {
+      return true;
+    } else if (avg < avgTarget) {
+      left++;
+    } else if (avg > avgTarget) {
+      right--;
+    }
+  }
+  return false;
 }
+
+console.log(averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8));

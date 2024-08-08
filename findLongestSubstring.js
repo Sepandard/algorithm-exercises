@@ -14,5 +14,16 @@ Time Complexity - O(n)
 **/
 
 function findLongestSubstring(){
-  // add whatever parameters you deem necessary - good luck!
+  var max = 0, currentString = "", i, char, pos;
+
+  for (i = 0; i < string.length; i += 1) {
+      char = string.charAt(i);
+      pos = currentString.indexOf(char);
+      if (pos !== -1) {
+          currentString = currentString.substr(pos + 1);
+      }
+      currentString += char;
+      max = Math.max(max, currentString.length);
+  }
+  return max;
 }
